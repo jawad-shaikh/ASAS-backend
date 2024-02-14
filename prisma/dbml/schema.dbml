@@ -1,0 +1,169 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table Admin {
+  id Int [pk, increment]
+  fullName String [not null]
+  email String [unique, not null]
+  password String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+}
+
+Table ActivityProvider {
+  id Int [pk, increment]
+  firstName String [not null]
+  lastName String [not null]
+  businessName String [not null]
+  email String [unique, not null]
+  password String [not null]
+  website String [not null]
+  phoneNumber String [not null]
+  approvalStatus ACTIVITY_PROVIDER_APPROVAL_STATUS [not null, default: 'PENDING']
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  Activity Activity [not null]
+}
+
+Table Parent {
+  id Int [pk, increment]
+  fullName String [not null]
+  profilePicture String
+  email String [unique, not null]
+  password String [not null]
+  phoneNumber String
+  address String
+  city String
+  state String
+  zipCode String
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  Child Child [not null]
+  Order Order [not null]
+  ActivityReview ActivityReview [not null]
+}
+
+Table Child {
+  id Int [pk, increment]
+  parentId Int [not null]
+  fullName String [not null]
+  birthDay DateTime [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  parent Parent [not null]
+  OrderDetail OrderDetail [not null]
+}
+
+Table Activity {
+  id Int [pk, increment]
+  category ACTIVITY_CATEGORY [not null]
+  activityProviderId Int [not null]
+  thumbnailPicture String
+  title String [not null]
+  description String [not null]
+  capacity Int [not null]
+  ageRangeStart Int [not null]
+  ageRangeEnd Int [not null]
+  activityStartDate DateTime [not null]
+  activityEndDate DateTime [not null]
+  activityStartTime DateTime [not null]
+  activityEndTime DateTime [not null]
+  formattedAddress String [not null]
+  locationLatitude Float [not null]
+  locationLongitude Float [not null]
+  isFullCourse Boolean [not null, default: false]
+  isSingleSession Boolean [not null, default: false]
+  fullCoursePrice Float
+  singleSessionPrice Float
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  provider ActivityProvider [not null]
+  ActivityReview ActivityReview [not null]
+  OrderDetail OrderDetail [not null]
+}
+
+Table ActivityReview {
+  id Int [pk, increment]
+  activityId Int [not null]
+  parentId Int [not null]
+  rating Int [not null]
+  loved String [not null]
+  improvements String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  activity Activity [not null]
+  parent Parent [not null]
+}
+
+Table Order {
+  id Int [pk, increment]
+  parentId Int [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  parent Parent [not null]
+  OrderDetail OrderDetail [not null]
+}
+
+Table OrderDetail {
+  id Int [pk, increment]
+  orderId Int [not null]
+  activityId Int [not null]
+  childId Int [not null]
+  bookingType BOOKING_TYPE [not null]
+  totalPrice Int [not null]
+  hasGivenReview Boolean [not null, default: false]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  order Order [not null]
+  activity Activity [not null]
+  child Child [not null]
+  SingleSessionDate SingleSessionDate [not null]
+}
+
+Table SingleSessionDate {
+  id Int [pk, increment]
+  orderDetailId Int [not null]
+  sessionDate DateTime [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  orderDetail OrderDetail [not null]
+}
+
+Enum ACTIVITY_PROVIDER_APPROVAL_STATUS {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+Enum ACTIVITY_CATEGORY {
+  MUSIC
+  ART
+  COOKING
+  ROBOTS
+  LANGUAGE
+  SPORTS
+}
+
+Enum BOOKING_TYPE {
+  FULL_COURSE
+  SINGLE_SESSION
+}
+
+Ref: Child.parentId > Parent.id
+
+Ref: Activity.activityProviderId > ActivityProvider.id
+
+Ref: ActivityReview.activityId > Activity.id
+
+Ref: ActivityReview.parentId > Parent.id
+
+Ref: Order.parentId > Parent.id
+
+Ref: OrderDetail.orderId > Order.id
+
+Ref: OrderDetail.activityId > Activity.id
+
+Ref: OrderDetail.childId > Child.id
+
+Ref: SingleSessionDate.orderDetailId > OrderDetail.id

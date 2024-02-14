@@ -1,0 +1,874 @@
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"prisma.workspaceMembers.findMany(...)?.map is not a function"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.workspaces.create()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\workspaces\\workspaces.controllers.js:67:47\n\n  64   return res.status(response.status.code).json(response);\n  65 }\n  66 \n→ 67 const workspace = await prisma.workspaces.create({\n       data: {\n         userId: 4,\n         title: \"abc\",\n     +   owner: {\n     +     create: UsersCreateWithoutWorkspacesInput | UsersUncheckedCreateWithoutWorkspacesInput,\n     +     connectOrCreate: UsersCreateOrConnectWithoutWorkspacesInput,\n     +     connect: UsersWhereUniqueInput\n     +   }\n       }\n     })\n\nArgument `owner` is missing."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.workspaces.findFirst()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\workspaces\\workspaces.controllers.js:14:53\n\n  11 const logger = require('../../config/logger.config');\n  12 \n  13 const checkExistingWorkspace = async (name) => {\n→ 14   const existingWorkspace = await prisma.workspaces.findFirst({\n         where: {\n           name: \"xyz\",\n           ~~~~\n       ?   AND?: WorkspacesWhereInput | WorkspacesWhereInput[],\n       ?   OR?: WorkspacesWhereInput[],\n       ?   NOT?: WorkspacesWhereInput | WorkspacesWhereInput[],\n       ?   id?: IntFilter | Int,\n       ?   title?: StringFilter | String,\n       ?   ownerId?: IntFilter | Int,\n       ?   createdAt?: DateTimeFilter | DateTime,\n       ?   updatedAt?: DateTimeFilter | DateTime,\n       ?   owner?: UsersRelationFilter | UsersWhereInput,\n       ?   Projects?: ProjectsListRelationFilter,\n       ?   WorkspaceMembers?: WorkspaceMembersListRelationFilter\n         }\n       })\n\nUnknown argument `name`. Available options are marked with ?."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.workspaces.update()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\workspaces\\workspaces.controllers.js:95:47\n\n  92   return res.status(response.status.code).json(response);\n  93 }\n  94 \n→ 95 const workspace = await prisma.workspaces.update({\n       data: {\n         title: \"lorem..\"\n       },\n       where: {\n         id: \"3\"\n             ~~~\n       }\n     })\n\nArgument `id`: Invalid value provided. Expected Int, provided String."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.workspaces.delete()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\workspaces\\workspaces.controllers.js:113:53\n\n  110 const { workspaceId } = req.params;\n  111 \n  112 try {\n→ 113   const workspace = await prisma.workspaces.delete({\n          where: {\n            id: \"3\"\n                ~~~\n          }\n        })\n\nArgument `id`: Invalid value provided. Expected Int, provided String."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.workspaceMembers.findMany()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\workspaces\\members.controllers.js:46:60\n\n  43 const { workspaceId } = req.params;\n  44 \n  45 try {\n→ 46   const workspaceMembers = await prisma.workspaceMembers.findMany({\n         where: {\n           workspaceId: \"1\"\n                        ~~~\n         },\n         include: {\n           member: true\n         }\n       })\n\nArgument `workspaceId`: Invalid value provided. Expected IntFilter or Int, provided String."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"All elements of the array need to be Prisma Client promises. Hint: Please make sure you are not awaiting the Prisma client calls you intended to pass in the $transaction function."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"All elements of the array need to be Prisma Client promises. Hint: Please make sure you are not awaiting the Prisma client calls you intended to pass in the $transaction function."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"All elements of the array need to be Prisma Client promises. Hint: Please make sure you are not awaiting the Prisma client calls you intended to pass in the $transaction function."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"All elements of the array need to be Prisma Client promises. Hint: Please make sure you are not awaiting the Prisma client calls you intended to pass in the $transaction function."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"All elements of the array need to be Prisma Client promises. Hint: Please make sure you are not awaiting the Prisma client calls you intended to pass in the $transaction function."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"All elements of the array need to be Prisma Client promises. Hint: Please make sure you are not awaiting the Prisma client calls you intended to pass in the $transaction function."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"All elements of the array need to be Prisma Client promises. Hint: Please make sure you are not awaiting the Prisma client calls you intended to pass in the $transaction function."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"All elements of the array need to be Prisma Client promises. Hint: Please make sure you are not awaiting the Prisma client calls you intended to pass in the $transaction function."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"All elements of the array need to be Prisma Client promises. Hint: Please make sure you are not awaiting the Prisma client calls you intended to pass in the $transaction function."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Error"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"All elements of the array need to be Prisma Client promises. Hint: Please make sure you are not awaiting the Prisma client calls you intended to pass in the $transaction function."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"User with ID 1 not found."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"User with ID 1 not found."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"User with ID 1 not found."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"User with ID 1 not found."}
+{"level":"error","message":"User with ID 4 is already a member of the workspace."}
+{"level":"error","message":"User with ID 4 is already a member of the workspace."}
+{"level":"error","message":"User with ID 5 is already a member of the workspace."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"User with ID 4 is already a member of the workspace."}
+{"level":"error","message":"User with ID 5 is already a member of the workspace."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"User with ID 4 is already a member of the workspace."}
+{"level":"error","message":"User with ID 4 is already a member of the workspace."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"User with ID 10 not found."}
+{"level":"error","message":"\nInvalid `tx.workspaceMembers.findUnique()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\workspaces\\members.controllers.js:94:58\n\n  91   throw new Error(`User with ID ${memberId} not found.`);\n  92 }\n  93 \n→ 94 const existingMember = await tx.workspaceMembers.findUnique({\n       where: {\n         workspaceId: \"1\",\n                      ~~~\n         userId: 5\n       }\n     })\n\nArgument `workspaceId`: Invalid value provided. Expected IntFilter or Int, provided String."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `tx.workspaceMembers.findUnique()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\workspaces\\members.controllers.js:94:58\n\n  91   throw new Error(`User with ID ${memberId} not found.`);\n  92 }\n  93 \n→ 94 const existingMember = await tx.workspaceMembers.findUnique({\n       where: {\n         workspaceId: 1,\n         userId: 5,\n     ?   id?: Int,\n     ?   AND?: WorkspaceMembersWhereInput | WorkspaceMembersWhereInput[],\n     ?   OR?: WorkspaceMembersWhereInput[],\n     ?   NOT?: WorkspaceMembersWhereInput | WorkspaceMembersWhereInput[],\n     ?   role?: EnumWORKSPACE_MEMBER_ROLEFilter | WORKSPACE_MEMBER_ROLE,\n     ?   createdAt?: DateTimeFilter | DateTime,\n     ?   updatedAt?: DateTimeFilter | DateTime,\n     ?   workspace?: WorkspacesRelationFilter | WorkspacesWhereInput,\n     ?   member?: UsersRelationFilter | UsersWhereInput\n       }\n     })\n\nArgument `where` of type WorkspaceMembersWhereUniqueInput needs at least one of `id` arguments. Available options are marked with ?."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"User with ID 5 not found in workspace."}
+{"level":"error","message":"User with ID 4 is already a member of the workspace."}
+{"level":"error","message":"\nInvalid `tx.workspaceMembers.delete()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\workspaces\\members.controllers.js:105:63\n\n  102   throw new Error(`User with ID ${memberId} not found in workspace.`);\n  103 }\n  104 \n→ 105 const removedMember = await tx.workspaceMembers.delete({\n        where: {\n          workspaceId: 1,\n          userId: 5,\n      ?   id?: Int,\n      ?   AND?: WorkspaceMembersWhereInput | WorkspaceMembersWhereInput[],\n      ?   OR?: WorkspaceMembersWhereInput[],\n      ?   NOT?: WorkspaceMembersWhereInput | WorkspaceMembersWhereInput[],\n      ?   role?: EnumWORKSPACE_MEMBER_ROLEFilter | WORKSPACE_MEMBER_ROLE,\n      ?   createdAt?: DateTimeFilter | DateTime,\n      ?   updatedAt?: DateTimeFilter | DateTime,\n      ?   workspace?: WorkspacesRelationFilter | WorkspacesWhereInput,\n      ?   member?: UsersRelationFilter | UsersWhereInput\n        }\n      })\n\nArgument `where` of type WorkspaceMembersWhereUniqueInput needs at least one of `id` arguments. Available options are marked with ?."}
+{"level":"error","message":"\nInvalid `tx.workspaceMembers.delete()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\workspaces\\members.controllers.js:105:63\n\n  102   throw new Error(`User with ID ${memberId} not found in workspace.`);\n  103 }\n  104 \n→ 105 const removedMember = await tx.workspaceMembers.delete({\n        where: {\n          workspaceId: 1,\n          userId: 4,\n      ?   id?: Int,\n      ?   AND?: WorkspaceMembersWhereInput | WorkspaceMembersWhereInput[],\n      ?   OR?: WorkspaceMembersWhereInput[],\n      ?   NOT?: WorkspaceMembersWhereInput | WorkspaceMembersWhereInput[],\n      ?   role?: EnumWORKSPACE_MEMBER_ROLEFilter | WORKSPACE_MEMBER_ROLE,\n      ?   createdAt?: DateTimeFilter | DateTime,\n      ?   updatedAt?: DateTimeFilter | DateTime,\n      ?   workspace?: WorkspacesRelationFilter | WorkspacesWhereInput,\n      ?   member?: UsersRelationFilter | UsersWhereInput\n        }\n      })\n\nArgument `where` of type WorkspaceMembersWhereUniqueInput needs at least one of `id` arguments. Available options are marked with ?."}
+{"level":"error","message":"User with ID 10 not found."}
+{"level":"error","message":"\nInvalid `tx.workspaceMembers.delete()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\workspaces\\members.controllers.js:105:63\n\n  102   throw new Error(`User with ID ${memberId} not found in workspace.`);\n  103 }\n  104 \n→ 105 const removedMember = await tx.workspaceMembers.delete({\n        where: {\n          workspaceId: 1,\n          userId: 4,\n      ?   id?: Int,\n      ?   AND?: WorkspaceMembersWhereInput | WorkspaceMembersWhereInput[],\n      ?   OR?: WorkspaceMembersWhereInput[],\n      ?   NOT?: WorkspaceMembersWhereInput | WorkspaceMembersWhereInput[],\n      ?   role?: EnumWORKSPACE_MEMBER_ROLEFilter | WORKSPACE_MEMBER_ROLE,\n      ?   createdAt?: DateTimeFilter | DateTime,\n      ?   updatedAt?: DateTimeFilter | DateTime,\n      ?   workspace?: WorkspacesRelationFilter | WorkspacesWhereInput,\n      ?   member?: UsersRelationFilter | UsersWhereInput\n        }\n      })\n\nArgument `where` of type WorkspaceMembersWhereUniqueInput needs at least one of `id` arguments. Available options are marked with ?."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"User with ID 4 not found in workspace."}
+{"level":"error","message":"User with ID 5 is already a member of the workspace."}
+{"level":"error","message":"(intermediate value) is not iterable"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"(intermediate value) is not iterable"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `tx.workspaceMembers.delete()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\workspaces\\members.controllers.js:105:63\n\n  102   throw new Error(`User with ID ${memberId} not found in workspace.`);\n  103 }\n  104 \n→ 105 const removedMember = await tx.workspaceMembers.delete({\n        where: {\n          workspaceId: 1,\n          userId: 4,\n      ?   id?: Int,\n      ?   AND?: WorkspaceMembersWhereInput | WorkspaceMembersWhereInput[],\n      ?   OR?: WorkspaceMembersWhereInput[],\n      ?   NOT?: WorkspaceMembersWhereInput | WorkspaceMembersWhereInput[],\n      ?   role?: EnumWORKSPACE_MEMBER_ROLEFilter | WORKSPACE_MEMBER_ROLE,\n      ?   createdAt?: DateTimeFilter | DateTime,\n      ?   updatedAt?: DateTimeFilter | DateTime,\n      ?   workspace?: WorkspacesRelationFilter | WorkspacesWhereInput,\n      ?   member?: UsersRelationFilter | UsersWhereInput\n        }\n      })\n\nArgument `where` of type WorkspaceMembersWhereUniqueInput needs at least one of `id` arguments. Available options are marked with ?."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `tx.workspaceMembers.delete()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\workspaces\\members.controllers.js:105:63\n\n  102   throw new Error(`User with ID ${memberId} not found in workspace.`);\n  103 }\n  104 \n→ 105 const removedMember = await tx.workspaceMembers.delete({\n        where: {\n          workspaceId: 1,\n          userId: 4,\n      ?   id?: Int,\n      ?   workspaceId_userId?: WorkspaceMembersWorkspaceIdUserIdCompoundUniqueInput,\n      ?   AND?: WorkspaceMembersWhereInput | WorkspaceMembersWhereInput[],\n      ?   OR?: WorkspaceMembersWhereInput[],\n      ?   NOT?: WorkspaceMembersWhereInput | WorkspaceMembersWhereInput[],\n      ?   role?: EnumWORKSPACE_MEMBER_ROLEFilter | WORKSPACE_MEMBER_ROLE,\n      ?   createdAt?: DateTimeFilter | DateTime,\n      ?   updatedAt?: DateTimeFilter | DateTime,\n      ?   workspace?: WorkspacesRelationFilter | WorkspacesWhereInput,\n      ?   member?: UsersRelationFilter | UsersWhereInput\n        }\n      })\n\nArgument `where` of type WorkspaceMembersWhereUniqueInput needs at least one of `id` or `workspaceId_userId` arguments. Available options are marked with ?."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.projects.create()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\projects\\projects.controllers.js:72:44\n\n  69 const data = req.body;\n  70 \n  71 try {\n→ 72   const projects = await prisma.projects.create({\n         data: {\n           title: \"project: 1\",\n           description: \"lorem...\",\n           startDate: \"2012-10-05T14:48:00.000Z\",\n           endDate: \"2012-10-05T14:48:00.000Z\"\n         },\n         where: {\n         ~~~~~\n           id: \"1\"\n         }\n       })\n\nUnknown argument `where`. Available options are marked with ?."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.projects.create()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\projects\\projects.controllers.js:72:44\n\n  69 const data = req.body;\n  70 \n  71 try {\n→ 72   const projects = await prisma.projects.create({\n         data: {\n           title: \"project: 1\",\n           description: \"lorem...\",\n           startDate: \"2012-10-05T14:48:00.000Z\",\n           endDate: \"2012-10-05T14:48:00.000Z\"\n         },\n         where: {\n         ~~~~~\n           id: 1\n         }\n       })\n\nUnknown argument `where`. Available options are marked with ?."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.projects.delete()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\projects\\projects.controllers.js:94:49\n\n  91 const projectId = Number(req.params.projectId);\n  92 \n  93 try {\n→ 94   const project = await prisma.projects.delete(\nAn operation failed because it depends on one or more records that were required but not found. Record to delete does not exist."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"User with id: 10 not found."}
+{"level":"error","message":"Project with id: 10 not found."}
+{"level":"error","message":"User with id: 4 does not exists in projects's workspace."}
+{"level":"error","message":"User with id: 4 does not exists in projects's workspace."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"User with id: 4 does not exists in projects's workspace."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"User with id: 4 does not exists in projects's workspace."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `tx.projectMembers.findFirst()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\projects\\members.controllers.js:90:56\n\n  87 }\n  88 \n  89 // check if user already member of project\n→ 90 const existingMember = await tx.projectMembers.findFirst({\n       where: {\n         projectId: 2,\n         ~~~~~~~~~\n         userId: 4,\n     ?   AND?: ProjectMembersWhereInput | ProjectMembersWhereInput[],\n     ?   OR?: ProjectMembersWhereInput[],\n     ?   NOT?: ProjectMembersWhereInput | ProjectMembersWhereInput[],\n     ?   id?: IntFilter | Int,\n     ?   ProjectId?: IntFilter | Int,\n     ?   role?: EnumPROJECT_MEMBER_ROLEFilter | PROJECT_MEMBER_ROLE,\n     ?   access?: EnumPROJECT_MEMBER_ACCESSFilter | PROJECT_MEMBER_ACCESS,\n     ?   createdAt?: DateTimeFilter | DateTime,\n     ?   updatedAt?: DateTimeFilter | DateTime,\n     ?   member?: UsersRelationFilter | UsersWhereInput,\n     ?   project?: ProjectsRelationFilter | ProjectsWhereInput\n       }\n     })\n\nUnknown argument `projectId`. Did you mean `ProjectId`? Available options are marked with ?."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `tx.projectMembers.findFirst()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\projects\\members.controllers.js:90:56\n\n  87 }\n  88 \n  89 // check if user already member of project\n→ 90 const existingMember = await tx.projectMembers.findFirst({\n       where: {\n         projectId: 2,\n         ~~~~~~~~~\n         userId: 4,\n     ?   AND?: ProjectMembersWhereInput | ProjectMembersWhereInput[],\n     ?   OR?: ProjectMembersWhereInput[],\n     ?   NOT?: ProjectMembersWhereInput | ProjectMembersWhereInput[],\n     ?   id?: IntFilter | Int,\n     ?   ProjectId?: IntFilter | Int,\n     ?   role?: EnumPROJECT_MEMBER_ROLEFilter | PROJECT_MEMBER_ROLE,\n     ?   access?: EnumPROJECT_MEMBER_ACCESSFilter | PROJECT_MEMBER_ACCESS,\n     ?   createdAt?: DateTimeFilter | DateTime,\n     ?   updatedAt?: DateTimeFilter | DateTime,\n     ?   member?: UsersRelationFilter | UsersWhereInput,\n     ?   project?: ProjectsRelationFilter | ProjectsWhereInput\n       }\n     })\n\nUnknown argument `projectId`. Did you mean `ProjectId`? Available options are marked with ?."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `tx.projectMembers.findFirst()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\projects\\members.controllers.js:90:56\n\n  87 }\n  88 \n  89 // check if user already member of project\n→ 90 const existingMember = await tx.projectMembers.findFirst({\n       where: {\n         projectId: 2,\n         ~~~~~~~~~\n         userId: 4,\n     ?   AND?: ProjectMembersWhereInput | ProjectMembersWhereInput[],\n     ?   OR?: ProjectMembersWhereInput[],\n     ?   NOT?: ProjectMembersWhereInput | ProjectMembersWhereInput[],\n     ?   id?: IntFilter | Int,\n     ?   ProjectId?: IntFilter | Int,\n     ?   role?: EnumPROJECT_MEMBER_ROLEFilter | PROJECT_MEMBER_ROLE,\n     ?   access?: EnumPROJECT_MEMBER_ACCESSFilter | PROJECT_MEMBER_ACCESS,\n     ?   createdAt?: DateTimeFilter | DateTime,\n     ?   updatedAt?: DateTimeFilter | DateTime,\n     ?   member?: UsersRelationFilter | UsersWhereInput,\n     ?   project?: ProjectsRelationFilter | ProjectsWhereInput\n       }\n     })\n\nUnknown argument `projectId`. Did you mean `ProjectId`? Available options are marked with ?."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `tx.projectMembers.findFirst()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\projects\\members.controllers.js:90:56\n\n  87 }\n  88 \n  89 // check if user already member of project\n→ 90 const existingMember = await tx.projectMembers.findFirst({\n       where: {\n         projectId: 2,\n         ~~~~~~~~~\n         userId: 4,\n     ?   AND?: ProjectMembersWhereInput | ProjectMembersWhereInput[],\n     ?   OR?: ProjectMembersWhereInput[],\n     ?   NOT?: ProjectMembersWhereInput | ProjectMembersWhereInput[],\n     ?   id?: IntFilter | Int,\n     ?   ProjectId?: IntFilter | Int,\n     ?   role?: EnumPROJECT_MEMBER_ROLEFilter | PROJECT_MEMBER_ROLE,\n     ?   access?: EnumPROJECT_MEMBER_ACCESSFilter | PROJECT_MEMBER_ACCESS,\n     ?   createdAt?: DateTimeFilter | DateTime,\n     ?   updatedAt?: DateTimeFilter | DateTime,\n     ?   member?: UsersRelationFilter | UsersWhereInput,\n     ?   project?: ProjectsRelationFilter | ProjectsWhereInput\n       }\n     })\n\nUnknown argument `projectId`. Did you mean `ProjectId`? Available options are marked with ?."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `tx.projectMembers.findFirst()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\projects\\members.controllers.js:94:56\n\n  91   userId: member.memberId,\n  92 });\n  93 // check if user already member of project\n→ 94 const existingMember = await tx.projectMembers.findFirst({\n       where: {\n         projectId: 2,\n         ~~~~~~~~~\n         userId: 4,\n     ?   AND?: ProjectMembersWhereInput | ProjectMembersWhereInput[],\n     ?   OR?: ProjectMembersWhereInput[],\n     ?   NOT?: ProjectMembersWhereInput | ProjectMembersWhereInput[],\n     ?   id?: IntFilter | Int,\n     ?   ProjectId?: IntFilter | Int,\n     ?   role?: EnumPROJECT_MEMBER_ROLEFilter | PROJECT_MEMBER_ROLE,\n     ?   access?: EnumPROJECT_MEMBER_ACCESSFilter | PROJECT_MEMBER_ACCESS,\n     ?   createdAt?: DateTimeFilter | DateTime,\n     ?   updatedAt?: DateTimeFilter | DateTime,\n     ?   member?: UsersRelationFilter | UsersWhereInput,\n     ?   project?: ProjectsRelationFilter | ProjectsWhereInput\n       }\n     })\n\nUnknown argument `projectId`. Did you mean `ProjectId`? Available options are marked with ?."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `tx.projectMembers.create()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\projects\\members.controllers.js:102:53\n\n   99 }\n  100 \n  101 // add member in project\n→ 102 const addedMember = await tx.projectMembers.create({\n        data: {\n          projectId: 2,\n          userId: 4,\n          role: \"GUEST\",\n                ~~~~~~~\n          access: undefined\n        }\n      })\n\nInvalid value for argument `role`. Expected PROJECT_MEMBER_ROLE."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `tx.projectMembers.create()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\projects\\members.controllers.js:102:53\n\n   99 }\n  100 \n  101 // add member in project\n→ 102 const addedMember = await tx.projectMembers.create({\n        data: {\n          projectId: 2,\n          userId: 4,\n          role: \"GUEST\",\n                ~~~~~~~\n          access: \"READ\"\n        }\n      })\n\nInvalid value for argument `role`. Expected PROJECT_MEMBER_ROLE."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"User with id: 10 not found."}
+{"level":"error","message":"Project with id: 21 not found."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.projectMembers.delete()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\projects\\members.controllers.js:169:73\n\n  166   throw new Error(`User with id: ${memberId} is not in this project.`);\n  167 }\n  168 \n→ 169 const deletedProjectMembers = await prisma.projectMembers.delete({\n        where: {\n          projectId: 2,\n          userId: {\n            in: [\n              6\n            ]\n          },\n      ?   id?: Int,\n      ?   AND?: ProjectMembersWhereInput | ProjectMembersWhereInput[],\n      ?   OR?: ProjectMembersWhereInput[],\n      ?   NOT?: ProjectMembersWhereInput | ProjectMembersWhereInput[],\n      ?   role?: EnumPROJECT_MEMBER_ROLEFilter | PROJECT_MEMBER_ROLE,\n      ?   access?: EnumPROJECT_MEMBER_ACCESSFilter | PROJECT_MEMBER_ACCESS,\n      ?   createdAt?: DateTimeFilter | DateTime,\n      ?   updatedAt?: DateTimeFilter | DateTime,\n      ?   member?: UsersRelationFilter | UsersWhereInput,\n      ?   project?: ProjectsRelationFilter | ProjectsWhereInput\n        }\n      })\n\nArgument `where` of type ProjectMembersWhereUniqueInput needs at least one of `id` arguments. Available options are marked with ?."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.projectMembers.delete()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\projects\\members.controllers.js:169:73\n\n  166   throw new Error(`User with id: ${memberId} is not in this project.`);\n  167 }\n  168 \n→ 169 const deletedProjectMembers = await prisma.projectMembers.delete({\n        where: {\n          projectId_userId: {\n            projectId: 2,\n            userId: {\n              in: [\n                6\n              ]\n            }\n            ~~~~~~~~~\n          }\n        }\n      })\n\nArgument `userId`: Invalid value provided. Expected Int, provided Object."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.projectMembers.delete()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\projects\\members.controllers.js:169:73\n\n  166   throw new Error(`User with id: ${memberId} is not in this project.`);\n  167 }\n  168 \n→ 169 const deletedProjectMembers = await prisma.projectMembers.delete({\n        where: {\n          projectId_userId: {\n            projectId: 2,\n            userId: {\n              in: 6\n            }\n            ~~~~~~~\n          }\n        }\n      })\n\nArgument `userId`: Invalid value provided. Expected Int, provided Object."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.projectMembers.delete()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\projects\\members.controllers.js:169:73\n\n  166   throw new Error(`User with id: ${memberId} is not in this project.`);\n  167 }\n  168 \n→ 169 const deletedProjectMembers = await prisma.projectMembers.delete({\n        where: {\n          projectId_userId: {\n            projectId: 2,\n            userId: {\n              in: 6\n            }\n            ~~~~~~~\n          }\n        }\n      })\n\nArgument `userId`: Invalid value provided. Expected Int, provided Object."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.projectMembers.delete()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\projects\\members.controllers.js:169:73\n\n  166   throw new Error(`User with id: ${memberId} is not in this project.`);\n  167 }\n  168 \n→ 169 const deletedProjectMembers = await prisma.projectMembers.delete({\n        where: {\n          projectId_userId: {\n            projectId: 2,\n            userId: {\n              in: 6\n            }\n            ~~~~~~~\n          }\n        }\n      })\n\nArgument `userId`: Invalid value provided. Expected Int, provided Object."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.projectMembers.delete()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\projects\\members.controllers.js:170:73\n\n  167 }\n  168 \n  169 console.log('memberId', memberId);\n→ 170 const deletedProjectMembers = await prisma.projectMembers.delete({\n        where: {\n          projectId_userId: {\n            projectId: 2,\n            userId: {\n              in: 6\n            }\n            ~~~~~~~\n          }\n        }\n      })\n\nArgument `userId`: Invalid value provided. Expected Int, provided Object."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"User with id: 6 is not in this project."}
+{"level":"error","message":"User with id: 5 is not in this project."}
+{"level":"error","message":"User with id: 4 is not in this project."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.tasks.create()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\tasks\\tasks.controllers.js:90:37\n\n  87 const data = req.body;\n  88 \n  89 try {\n→ 90   const task = await prisma.tasks.create({\n         data: {\n           projectId: \"2\",\n           title: \"task 1\",\n           description: \"lorem ipsum...\",\n           startDate: \"2011-10-05T14:48:00.000Z\",\n           endDate: \"2011-10-05T14:48:00.000Z\",\n           anyoneCanChangeStatus: true,\n       +   AnyoneCanChangeStatus: Boolean\n         }\n       })\n\nArgument `AnyoneCanChangeStatus` is missing."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.tasks.create()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\tasks\\tasks.controllers.js:90:37\n\n  87 const data = req.body;\n  88 \n  89 try {\n→ 90   const task = await prisma.tasks.create({\n         data: {\n           projectId: \"2\",\n                      ~~~\n           title: \"task 1\",\n           description: \"lorem ipsum...\",\n           startDate: \"2011-10-05T14:48:00.000Z\",\n           endDate: \"2011-10-05T14:48:00.000Z\",\n           anyoneCanChangeStatus: true\n         }\n       })\n\nArgument `projectId`: Invalid value provided. Expected Int, provided String."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'map')"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'createMany')"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.taskStatusApprovalMembers.createMany()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\tasks\\tasks.controllers.js:107:46\n\n  104   userId: i,\n  105 }));\n  106 \n→ 107 await prisma.taskStatusApprovalMembers.createMany({\n        data: [\n          [\n            {\n              taskId: 4,\n              userId: 4\n            },\n            {\n              taskId: 4,\n              userId: 5\n            },\n            {\n              taskId: 4,\n              userId: 6\n            }\n          ]\n        ]\n        ~~~~~~~~~~~~~~~\n      })\n\nArgument `data`: Invalid value provided. Expected TaskStatusApprovalMembersCreateManyInput, provided (Object, Object, Object)."}
+{"level":"error","message":"\nInvalid `prisma.taskStatusApprovalMembers.createMany()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\tasks\\tasks.controllers.js:107:46\n\n  104   userId: i,\n  105 }));\n  106 \n→ 107 await prisma.taskStatusApprovalMembers.createMany({\n        data: [\n          [\n            {\n              taskId: 5,\n              userId: 4\n            },\n            {\n              taskId: 5,\n              userId: 5\n            },\n            {\n              taskId: 5,\n              userId: 6\n            }\n          ]\n        ]\n        ~~~~~~~~~~~~~~~\n      })\n\nArgument `data`: Invalid value provided. Expected TaskStatusApprovalMembersCreateManyInput, provided (Object, Object, Object)."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.taskStatusApprovalMembers.createMany()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\tasks\\tasks.controllers.js:109:46\n\n  106 \n  107 console.log('askTo', askTo);\n  108 \n→ 109 await prisma.taskStatusApprovalMembers.createMany({\n        data: [\n          [\n            {\n              taskId: 6,\n              userId: 4\n            },\n            {\n              taskId: 6,\n              userId: 5\n            },\n            {\n              taskId: 6,\n              userId: 6\n            }\n          ]\n        ]\n        ~~~~~~~~~~~~~~~\n      })\n\nArgument `data`: Invalid value provided. Expected TaskStatusApprovalMembersCreateManyInput, provided (Object, Object, Object)."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"_count is not defined"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.taskStatusApprovalMembers.deleteMany()` invocation in\nD:\\personal\\test-backend\\controllers\\tasks\\tasks.controllers.js:143:46\n\n  140 });\n  141 \n  142 if (!task.AnyoneCanChangeStatus) {\n→ 143   await prisma.taskStatusApprovalMembers.deleteMany({\n          where: {\n            taskId: \"1\"\n                    ~~~\n          }\n        })\n\nArgument `taskId`: Invalid value provided. Expected IntFilter or Int, provided String."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'map')"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'map')"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'map')"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'map')"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'map')"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'map')"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'map')"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'map')"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.tasks.findFirst()` invocation in\nD:\\personal\\test-backend\\controllers\\tasks\\status.controllers.js:15:37\n\n  12 const { status } = req.params;\n  13 \n  14 try {\n→ 15   const task = await prisma.tasks.findFirst({\n         where: {\n           id: \"1\"\n               ~~~\n         }\n       })\n\nArgument `id`: Invalid value provided. Expected IntFilter or Int, provided String."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Cannot read properties of null (reading 'anyoneCanChangeStatus')"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Cannot read properties of null (reading 'anyoneCanChangeStatus')"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Cannot read properties of null (reading 'anyoneCanChangeStatus')"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Cannot read properties of null (reading 'anyoneCanChangeStatus')"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Cannot read properties of null (reading 'anyoneCanChangeStatus')"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Cannot read properties of null (reading 'anyoneCanChangeStatus')"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Cannot read properties of null (reading 'anyoneCanChangeStatus')"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.comments.create()` invocation in\nD:\\personal\\test-backend\\controllers\\tasks\\comments.controllers.js:33:47\n\n  30 const data = req.body;\n  31 \n  32 try {\n→ 33   const taskComment = await prisma.comments.create({\n         data: {\n           taskId: 1,\n           text: \"lorem ipsum ...\",\n       +   task: {\n       +     create: TasksCreateWithoutCommentsInput | TasksUncheckedCreateWithoutCommentsInput,\n       +     connectOrCreate: TasksCreateOrConnectWithoutCommentsInput,\n       +     connect: TasksWhereUniqueInput\n       +   }\n         }\n       })\n\nArgument `task` is missing."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.taskAttachments.createMany()` invocation in\nD:\\personal\\test-backend\\controllers\\tasks\\attachments.controllers.js:41:58\n\n  38   size: i.size,\n  39 }));\n  40 \n→ 41 const taskAttachments = await prisma.taskAttachments.createMany({\n       data: [\n         {\n           taskId: 1,\n           originalName: \"1.jpeg\",\n           fileName: undefined,\n           mimetype: \"image/jpeg\",\n           size: 86009\n         },\n         {\n           taskId: 1,\n           originalName: \"2.jpeg\",\n           fileName: undefined,\n           mimetype: \"image/jpeg\",\n           size: 241325\n         }\n       ]\n     })\n\nArgument `fileName` is missing."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.taskAttachments.createMany()` invocation in\nD:\\personal\\test-backend\\controllers\\tasks\\attachments.controllers.js:43:58\n\n  40   size: i.size,\n  41 }));\n  42 \n→ 43 const taskAttachments = await prisma.taskAttachments.createMany({\n       data: [\n         {\n           taskId: 1,\n           originalName: \"1.jpeg\",\n           fileName: undefined,\n           mimetype: \"image/jpeg\",\n           size: 86009\n         },\n         {\n           taskId: 1,\n           originalName: \"2.jpeg\",\n           fileName: undefined,\n           mimetype: \"image/jpeg\",\n           size: 241325\n         }\n       ]\n     })\n\nArgument `fileName` is missing."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"(intermediate value).now is not a function"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"Date(...).now is not a function"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.subTasks.create()` invocation in\nD:\\personal\\test-backend\\controllers\\subTask\\subTask.controllers.js:55:43\n\n  52 const data = req.body;\n  53 \n  54 try {\n→ 55   const subTask = await prisma.subTasks.create({\n         data: {\n           title: \"subtask one\"\n         },\n         where: {\n         ~~~~~\n           id: NaN\n         }\n       })\n\nUnknown argument `where`. Available options are marked with ?."}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.subTasks.update()` invocation in\nD:\\personal\\test-backend\\controllers\\subTask\\subTask.controllers.js:55:43\n\n  52 const data = req.body;\n  53 \n  54 try {\n→ 55   const subTask = await prisma.subTasks.update({\n         data: {\n           title: \"subtask one\"\n         },\n         where: {\n       +   id: Int\n         }\n       })\n\nArgument `id` is missing."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.subTasks.update()` invocation in\nD:\\personal\\test-backend\\controllers\\subTask\\subTask.controllers.js:55:43\n\n  52 const data = req.body;\n  53 \n  54 try {\n→ 55   const subTask = await prisma.subTasks.update({\n         data: {\n           title: \"subtask one\"\n         },\n         where: {\n       +   id: Int\n         }\n       })\n\nArgument `id` is missing."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"error","message":"\nInvalid `prisma.subTasks.update()` invocation in\nD:\\personal\\test-backend\\controllers\\subTask\\subTask.controllers.js:56:43\n\n  53 \n  54 try {\n  55   console.log('subtaskId', subtaskId);\n→ 56   const subTask = await prisma.subTasks.update({\n         data: {\n           title: \"subtask one\"\n         },\n         where: {\n       +   id: Int\n         }\n       })\n\nArgument `id` is missing."}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 4400"}
+{"level":"info","message":"listening on 5500"}
+{"level":"error","message":"\nInvalid `prisma.tasks.create()` invocation in\nD:\\personal\\test-backend\\controllers\\tasks\\tasks.controllers.js:93:37\n\n  90 const data = req.body;\n  91 \n  92 try {\n→ 93   const task = await prisma.tasks.create(\nForeign key constraint failed on the field: `projectId`"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"error","message":"notFoundResponse is not defined"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"error","message":"\nInvalid `prisma.hodReportingDepartmentRoles.deleteMany()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\users\\users.controllers.js:107:46\n\n  104 try {\n  105   await prisma.hod.deleteMany({ where: { userId } });\n  106   await prisma.hodReportingDepartments.deleteMany({ where: { userId } });\n→ 107   await prisma.hodReportingDepartmentRoles.deleteMany({\n          where: {\n            userId: 2,\n            ~~~~~~\n        ?   AND?: HodReportingDepartmentRolesWhereInput | HodReportingDepartmentRolesWhereInput[],\n        ?   OR?: HodReportingDepartmentRolesWhereInput[],\n        ?   NOT?: HodReportingDepartmentRolesWhereInput | HodReportingDepartmentRolesWhereInput[],\n        ?   id?: IntFilter | Int,\n        ?   departmentId?: IntFilter | Int,\n        ?   departmentRoleId?: IntFilter | Int,\n        ?   createdAt?: DateTimeFilter | DateTime,\n        ?   updatedAt?: DateTimeFilter | DateTime,\n        ?   department?: DepartmentsRelationFilter | DepartmentsWhereInput,\n        ?   departmentRole?: DepartmentRolesRelationFilter | DepartmentRolesWhereInput\n          }\n        })\n\nUnknown argument `userId`. Available options are marked with ?."}
+{"level":"info","message":"listening on 5500"}
+{"level":"error","message":"role is not defined"}
+{"level":"info","message":"listening on 5500"}
+{"level":"error","message":"\nInvalid `prisma.hodReportingDepartments.create()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\users\\users.controllers.js:120:48\n\n  117 for (const key in departmentIds) {\n  118   const departmentId = Number(key);\n  119 \n→ 120   await prisma.hodReportingDepartments.create(\nForeign key constraint failed on the field: `departmentId`"}
+{"level":"info","message":"listening on 5500"}
+{"level":"error","message":"\nInvalid `prisma.hodReportingDepartments.create()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\users\\users.controllers.js:120:48\n\n  117 for (const key in departmentIds) {\n  118   const departmentId = Number(key);\n  119 \n→ 120   await prisma.hodReportingDepartments.create(\nForeign key constraint failed on the field: `departmentId`"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"error","message":"User with id: 3 is not in the tasks's project."}
+{"level":"info","message":"listening on 5500"}
+{"level":"error","message":"User with id: 3 is not in the tasks's project."}
+{"level":"error","message":"User with id: 3 does not exists in projects's workspace."}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"error","message":"\nInvalid `prisma.users.findFirst()` invocation in\nD:\\projects\\MCHD-backend\\controllers\\reports\\reports.controllers.js:727:46\n\n  724 const adminId = Number(req.params.adminId);\n  725 \n  726 try {\n→ 727   const existingAdmin = await prisma.users.findFirst({\n          where: {\n            userId: 1,\n            ~~~~~~\n            role: \"ADMIN\",\n        ?   AND?: UsersWhereInput | UsersWhereInput[],\n        ?   OR?: UsersWhereInput[],\n        ?   NOT?: UsersWhereInput | UsersWhereInput[],\n        ?   id?: IntFilter | Int,\n        ?   departmentId?: IntNullableFilter | Int | Null,\n        ?   departmentRoleId?: IntNullableFilter | Int | Null,\n        ?   name?: StringFilter | String,\n        ?   email?: StringFilter | String,\n        ?   username?: StringFilter | String,\n        ?   password?: StringFilter | String,\n        ?   profilePicture?: StringNullableFilter | String | Null,\n        ?   createdAt?: DateTimeFilter | DateTime,\n        ?   updatedAt?: DateTimeFilter | DateTime,\n        ?   department?: DepartmentsNullableRelationFilter | DepartmentsWhereInput | Null,\n        ?   departmentRole?: DepartmentRolesNullableRelationFilter | DepartmentRolesWhereInput | Null,\n        ?   VacationDetails?: VacationDetailsListRelationFilter,\n        ?   Workspaces?: WorkspacesListRelationFilter,\n        ?   WorkspaceMembers?: WorkspaceMembersListRelationFilter,\n        ?   ProjectMembers?: ProjectMembersListRelationFilter,\n        ?   TaskAssignments?: TaskAssignmentsListRelationFilter,\n        ?   TaskStatusApprovalMembers?: TaskStatusApprovalMembersListRelationFilter,\n        ?   Notifications?: NotificationsListRelationFilter,\n        ?   Comments?: CommentsListRelationFilter,\n        ?   TaskStatusApprovalRequests?: TaskStatusApprovalRequestsListRelationFilter,\n        ?   PersonalCalendarEvents?: PersonalCalendarEventsListRelationFilter,\n        ?   PersonalCalendarEventInvitations?: PersonalCalendarEventInvitationsListRelationFilter,\n        ?   CommitteeCalendarEvents?: CommitteeCalendarEventsListRelationFilter,\n        ?   CommitteeCalendarEventInvitations?: CommitteeCalendarEventInvitationsListRelationFilter,\n        ?   CommitteeCalendarAccessMembers?: CommitteeCalendarAccessMembersListRelationFilter,\n        ?   Hod?: HodListRelationFilter,\n        ?   HodReportingDepartments?: HodReportingDepartmentsListRelationFilter,\n        ?   HodReportingWorkspaces?: HodReportingWorkspacesListRelationFilter,\n        ?   Executive?: ExecutiveListRelationFilter,\n        ?   Ceo?: CeoListRelationFilter,\n        ?   ExecutiveReportingHods?: ExecutiveReportingHodsListRelationFilter,\n        ?   hod?: ExecutiveReportingHodsListRelationFilter,\n        ?   CeoReportingExecutives?: CeoReportingExecutivesListRelationFilter,\n        ?   executive?: CeoReportingExecutivesListRelationFilter,\n        ?   HodReportingDepartmentRoles?: HodReportingDepartmentRolesListRelationFilter\n          }\n        })\n\nUnknown argument `userId`. Available options are marked with ?."}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 5500"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"data.map is not a function"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.parent.create()` invocation in\nD:\\projects\\ASAS-backend\\controllers\\parents\\children.controllers.js:28:42\n\n  25 const data = req.body;\n  26 \n  27 try {\n→ 28   const children = await prisma.parent.create({\n         data: {\n           fullName: \"john doe\",\n           birthDay: \"2011-10-05T14:48:00.000Z\",\n           parentId: 3,\n       +   email: String\n         }\n       })\n\nArgument `email` is missing."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.activityProvider.update()` invocation in\nD:\\projects\\ASAS-backend\\controllers\\activityProviders\\activityProviders.controllers.js:46:52\n\n  43 const { status } = req.body;\n  44 \n  45 try {\n→ 46   const provider = await prisma.activityProvider.update({\n       + data: ActivityProviderUpdateInput | ActivityProviderUncheckedUpdateInput\n       })\n\nArgument `data` is missing."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.activity.create()` invocation in\nD:\\projects\\ASAS-backend\\controllers\\activities\\activities.controllers.js:20:44\n\n  17 const data = req.body;\n  18 \n  19 try {\n→ 20   const activity = await prisma.activity.create({\n         data: {\n           title: \"football\",\n           description: \"...\",\n           category: \"SPORTS\",\n           capacity: 10,\n           ageRangeStart: 2,\n           ageRangeEnd: 10,\n           activityStartDate: \"2011-10-05T14:48:00.000Z\",\n           activityEndDate: \"2012-10-05T14:48:00.000Z\",\n           activityStartTime: \"01:30\",\n           activityEndTime: \"02:30\",\n           ActivityLocation: {\n             formattedAddress: \"xyz location\",\n             locationLatitude: \"4554.55\",\n             locationLongitude: \"8954.55\"\n           },\n           ActivityPrice: {\n             isFullCourse: true,\n             isSingleSession: true,\n             fullCoursePrice: 1000,\n             singleSessionPrice: 100\n           },\n       +   thumbnailPicture: String\n         }\n       })\n\nArgument `thumbnailPicture` is missing."}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.activity.create()` invocation in\nD:\\projects\\ASAS-backend\\controllers\\activities\\activities.controllers.js:20:44\n\n  17 const data = req.body;\n  18 \n  19 try {\n→ 20   const activity = await prisma.activity.create({\n         data: {\n           title: \"football\",\n           description: \"...\",\n           category: \"SPORTS\",\n           capacity: 10,\n           ageRangeStart: 2,\n           ageRangeEnd: 10,\n           activityStartDate: \"2011-10-05T14:48:00.000Z\",\n           activityEndDate: \"2012-10-05T14:48:00.000Z\",\n           activityStartTime: \"01:30\",\n           activityEndTime: \"02:30\",\n           ActivityLocation: {\n             formattedAddress: \"xyz location\",\n             locationLatitude: \"4554.55\",\n             locationLongitude: \"8954.55\"\n           },\n           ActivityPrice: {\n             isFullCourse: true,\n             isSingleSession: true,\n             fullCoursePrice: 1000,\n             singleSessionPrice: 100\n           },\n       +   provider: {\n       +     create: ActivityProviderCreateWithoutActivityInput | ActivityProviderUncheckedCreateWithoutActivityInput,\n       +     connectOrCreate: ActivityProviderCreateOrConnectWithoutActivityInput,\n       +     connect: ActivityProviderWhereUniqueInput\n       +   }\n         }\n       })\n\nArgument `provider` is missing."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.activity.create()` invocation in\nD:\\projects\\ASAS-backend\\controllers\\activities\\activities.controllers.js:21:44\n\n  18 const { userId } = req.user;\n  19 \n  20 try {\n→ 21   const activity = await prisma.activity.create({\n         data: {\n           activityProviderId: 1,\n           title: \"football\",\n           description: \"...\",\n           category: \"SPORTS\",\n           capacity: 10,\n           ageRangeStart: 2,\n           ageRangeEnd: 10,\n           activityStartDate: \"2011-10-05T14:48:00.000Z\",\n           activityEndDate: \"2012-10-05T14:48:00.000Z\",\n           activityStartTime: \"01:30\",\n                              ~~~~~~~\n           activityEndTime: \"02:30\",\n           ActivityLocation: {\n             formattedAddress: \"xyz location\",\n             locationLatitude: \"4554.55\",\n             locationLongitude: \"8954.55\"\n           },\n           ActivityPrice: {\n             isFullCourse: true,\n             isSingleSession: true,\n             fullCoursePrice: 1000,\n             singleSessionPrice: 100\n           }\n         }\n       })\n\nInvalid value for argument `activityStartTime`: input contains invalid characters. Expected ISO-8601 DateTime."}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.activity.create()` invocation in\nD:\\projects\\ASAS-backend\\controllers\\activities\\activities.controllers.js:21:44\n\n  18 const { userId } = req.user;\n  19 \n  20 try {\n→ 21   const activity = await prisma.activity.create({\n         data: {\n           activityProviderId: 1,\n           title: \"football\",\n           description: \"...\",\n           category: \"SPORTS\",\n           capacity: 10,\n           ageRangeStart: 2,\n           ageRangeEnd: 10,\n           activityStartDate: \"2011-10-05T14:48:00.000Z\",\n           activityEndDate: \"2012-10-05T14:48:00.000Z\",\n           activityStartTime: \"01:30\",\n                              ~~~~~~~\n           activityEndTime: \"02:30\",\n           ActivityLocation: {\n             formattedAddress: \"xyz location\",\n             locationLatitude: \"4554.55\",\n             locationLongitude: \"8954.55\"\n           },\n           ActivityPrice: {\n             isFullCourse: true,\n             isSingleSession: true,\n             fullCoursePrice: 1000,\n             singleSessionPrice: 100\n           }\n         }\n       })\n\nInvalid value for argument `activityStartTime`: input contains invalid characters. Expected ISO-8601 DateTime."}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.activity.create()` invocation in\nD:\\projects\\ASAS-backend\\controllers\\activities\\activities.controllers.js:21:44\n\n  18 const { userId } = req.user;\n  19 \n  20 try {\n→ 21   const activity = await prisma.activity.create({\n         data: {\n           activityProviderId: 1,\n           title: \"football\",\n           description: \"...\",\n           category: \"SPORTS\",\n           capacity: 10,\n           ageRangeStart: 2,\n           ageRangeEnd: 10,\n           activityStartDate: \"2011-10-05T14:48:00.000Z\",\n           activityEndDate: \"2012-10-05T14:48:00.000Z\",\n           activityStartTime: \"01:30:00\",\n                              ~~~~~~~~~~\n           activityEndTime: \"02:30:00\",\n           ActivityLocation: {\n             formattedAddress: \"xyz location\",\n             locationLatitude: \"4554.55\",\n             locationLongitude: \"8954.55\"\n           },\n           ActivityPrice: {\n             isFullCourse: true,\n             isSingleSession: true,\n             fullCoursePrice: 1000,\n             singleSessionPrice: 100\n           }\n         }\n       })\n\nInvalid value for argument `activityStartTime`: input contains invalid characters. Expected ISO-8601 DateTime."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.activity.create()` invocation in\nD:\\projects\\ASAS-backend\\controllers\\activities\\activities.controllers.js:21:44\n\n  18 const { userId } = req.user;\n  19 \n  20 try {\n→ 21   const activity = await prisma.activity.create({\n         data: {\n           activityProviderId: 1,\n           title: \"football\",\n           description: \"...\",\n           category: \"SPORTS\",\n           capacity: 10,\n           ageRangeStart: 2,\n           ageRangeEnd: 10,\n           activityStartDate: \"2011-10-05T14:48:00.000Z\",\n           activityEndDate: \"2012-10-05T14:48:00.000Z\",\n           activityStartTime: \"1970-01-01T01:30:00.000Z\",\n           activityEndTime: \"1970-01-01T02:30:00.000Z\",\n           ActivityLocation: {\n             formattedAddress: \"xyz location\",\n             ~~~~~~~~~~~~~~~~\n             locationLatitude: \"4554.55\",\n             locationLongitude: \"8954.55\",\n       ?     create?: ActivityLocationCreateWithoutActivityInput | ActivityLocationCreateWithoutActivityInput[] | ActivityLocationUncheckedCreateWithoutActivityInput | ActivityLocationUncheckedCreateWithoutActivityInput[],\n       ?     connectOrCreate?: ActivityLocationCreateOrConnectWithoutActivityInput | ActivityLocationCreateOrConnectWithoutActivityInput[],\n       ?     createMany?: ActivityLocationCreateManyActivityInputEnvelope,\n       ?     connect?: ActivityLocationWhereUniqueInput | ActivityLocationWhereUniqueInput[]\n           },\n           ActivityPrice: {\n             isFullCourse: true,\n             isSingleSession: true,\n             fullCoursePrice: 1000,\n             singleSessionPrice: 100\n           }\n         }\n       })\n\nUnknown argument `formattedAddress`. Available options are marked with ?."}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.activity.create()` invocation in\nD:\\projects\\ASAS-backend\\controllers\\activities\\activities.controllers.js:21:44\n\n  18 const { userId } = req.user;\n  19 \n  20 try {\n→ 21   const activity = await prisma.activity.create({\n         data: {\n           activityProviderId: 1,\n           title: \"football\",\n           description: \"...\",\n           category: \"SPORTS\",\n           capacity: 10,\n           ageRangeStart: 2,\n           ageRangeEnd: 10,\n           activityStartDate: \"2011-10-05T14:48:00.000Z\",\n           activityEndDate: \"2012-10-05T14:48:00.000Z\",\n           activityStartTime: \"1970-01-01T01:30:00.000Z\",\n           activityEndTime: \"1970-01-01T02:30:00.000Z\",\n           formattedAddress: \"xyz location\",\n           locationLatitude: \"4554.55\",\n                             ~~~~~~~~~\n           locationLongitude: \"8954.55\",\n           isFullCourse: true,\n           isSingleSession: true,\n           fullCoursePrice: 1000,\n           singleSessionPrice: 100\n         }\n       })\n\nArgument `locationLatitude`: Invalid value provided. Expected Float, provided String."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.activity.create()` invocation in\nD:\\projects\\ASAS-backend\\controllers\\activities\\activities.controllers.js:21:44\n\n  18 const { userId } = req.user;\n  19 \n  20 try {\n→ 21   const activity = await prisma.activity.create({\n         data: {\n           activityProviderId: 1,\n           title: \"football\",\n           description: \"...\",\n           category: \"SPORTS\",\n           capacity: \"10\",\n                     ~~~~\n           ageRangeStart: \"2\",\n           ageRangeEnd: \"10\",\n           activityStartDate: \"2011-10-05T14:48:00.000Z\",\n           activityEndDate: \"2012-10-05T14:48:00.000Z\",\n           activityStartTime: \"1970-01-01T01:30:00.000Z\",\n           activityEndTime: \"1970-01-01T02:30:00.000Z\",\n           formattedAddress: \"xyz location\",\n           locationLatitude: \"45.56464\",\n           locationLongitude: \"65.64821\",\n           isFullCourse: \"true\",\n           isSingleSession: \"true\",\n           fullCoursePrice: \"1000\",\n           singleSessionPrice: \"100\"\n         }\n       })\n\nArgument `capacity`: Invalid value provided. Expected Int, provided String."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'filename')"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'filename')"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.activityReview.aggregate()` invocation in\nD:\\projects\\ASAS-backend\\controllers\\activities\\activities.controllers.js:33:55\n\n  30 \n  31 const activitiesWithRatingInfo = await Promise.all(\n  32   activities.map(async (activity) => {\n→ 33     const avgRating = await prisma.activityReview.aggregate({\n           select: {},\n           where: {\n             activityId: 1\n           },\n           avg: {\n           ~~~\n             rating: true\n           },\n           count: true,\n         ? orderBy?: ActivityReviewOrderByWithRelationInput[] | ActivityReviewOrderByWithRelationInput,\n         ? cursor?: ActivityReviewWhereUniqueInput,\n         ? take?: Int,\n         ? skip?: Int\n         })\n\nUnknown argument `avg`. Did you mean `take`? Available options are marked with ?."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'rating')"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
