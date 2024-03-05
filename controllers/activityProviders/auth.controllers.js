@@ -61,7 +61,7 @@ const login = async (req, res) => {
 
     const jwtPayload = {
       userId: user.id,
-      name: user.name,
+      fullName: `${user.firstName} ${user.lastName}`,
       email: user.email,
       role: 'ACTIVITY_PROVIDER',
     };

@@ -4,7 +4,9 @@ const {
   deleteSuccessResponse,
   okResponse,
   badRequestResponse,
+  updateSuccessResponse,
 } = require('generic-response');
+const geolib = require('geolib');
 
 const prisma = require('../../config/database.config');
 const logger = require('../../config/logger.config');
@@ -15,19 +17,92 @@ const parseCreateActivityData = (data) => {
   parsedData.capacity = Number(data.capacity);
   parsedData.ageRangeStart = Number(data.ageRangeStart);
   parsedData.ageRangeEnd = Number(data.ageRangeEnd);
-  parsedData.locationLatitude = Number(data.locationLatitude);
-  parsedData.locationLongitude = Number(data.locationLongitude);
   parsedData.isFullCourse = data.isFullCourse === 'true';
   parsedData.isSingleSession = data.isSingleSession === 'true';
-  parsedData.fullCoursePrice = Number(data.fullCoursePrice);
-  parsedData.singleSessionPrice = Number(data.singleSessionPrice);
+  parsedData.fullCoursePrice = data.fullCoursePrice !== null ? Number(data.fullCoursePrice) : null;
+  parsedData.singleSessionPrice =
+    data.fullCoursePrice !== null ? Number(data.singleSessionPrice) : null;
+  parsedData.lat = Number(data.lat);
+  parsedData.lng = Number(data.lng);
 
   return parsedData;
 };
 
 const getAllActivities = async (req, res) => {
+  const activityProviderId = Number(req.query.activityProviderId);
+  let { category, age, bookingType, startTime, endTime, searchQuery, months, latitude, longitude } =
+    req.body;
+
   try {
-    const activities = await prisma.activity.findMany();
+    const whereClause = {};
+
+    if (activityProviderId) {
+      whereClause.activityProviderId = activityProviderId;
+    }
+
+    if (searchQuery && searchQuery !== '') {
+      whereClause.title = {
+        contains: searchQuery,
+      };
+    }
+
+    if (category && category.length > 0) {
+      whereClause.category = { in: category };
+    }
+
+    if (age && age.length > 0) {
+      const ageRanges = age.map((a) => parseInt(a));
+      whereClause.ageRangeStart = {
+        lte: Math.max(...ageRanges) === 18 ? 100 : Math.max(...ageRanges),
+      };
+      whereClause.ageRangeEnd = { gte: Math.min(...ageRanges) };
+    }
+
+    if (bookingType && bookingType.length > 0) {
+      whereClause.bookingType = { in: bookingType };
+    }
+
+    if (months && months.length > 0) {
+      whereClause.OR = months.map((month) => ({
+        AND: [
+          { activityStartDate: { lte: new Date(2022, month + 1, 0) } },
+          { activityEndDate: { gte: new Date(2022, month, 1) } },
+        ],
+      }));
+    }
+
+    if (startTime && endTime) {
+      console.log(startTime, endTime);
+      let date1 = new Date();
+      date1.setHours(Number(startTime));
+      date1.setMinutes(0);
+      date1.setSeconds(0);
+
+      let date2 = new Date();
+      date2.setHours(Number(endTime));
+      date2.setMinutes(0);
+      date2.setSeconds(0);
+
+      whereClause.activityStartTime = { lte: date2 };
+      whereClause.activityEndTime = { gte: date1 };
+    }
+
+    let activities = await prisma.activity.findMany({
+      where: whereClause,
+      include: {
+        provider: true,
+      },
+    });
+
+    if (latitude && longitude) {
+      activities = activities.filter((activity) => {
+        const distance = geolib.getDistance(
+          { latitude: parseFloat(latitude), longitude: parseFloat(longitude) },
+          { latitude: activity.lat, longitude: activity.lng },
+        );
+        return distance <= 50; // Distance in meters
+      });
+    }
 
     const activitiesWithRatingInfo = await Promise.all(
       activities.map(async (activity) => {
@@ -39,15 +114,23 @@ const getAllActivities = async (req, res) => {
 
         return {
           ...activity,
-          // eslint-disable-next-line no-underscore-dangle
+          thumbnailPicture:
+            activity.thumbnailPicture === null
+              ? null
+              : `${process.env.BACKEND_URL}/activity-thumbnails/${activity.thumbnailPicture}`,
           averageRating: avgRating._avg.rating || 0,
-          // eslint-disable-next-line no-underscore-dangle
           numberOfRatings: avgRating._count,
         };
       }),
     );
 
-    const response = createSuccessResponse(activitiesWithRatingInfo);
+    const coordinates = activities.map((i) => ({
+      lat: i.lat,
+      lng: i.lng,
+      name: i.formattedAddress,
+    }));
+
+    const response = okResponse({ activities: activitiesWithRatingInfo, coordinates });
     return res.status(response.status.code).json(response);
   } catch (error) {
     logger.error(error.message);
@@ -71,6 +154,11 @@ const getSingleActivity = async (req, res) => {
       },
     });
 
+    activity.thumbnailPicture =
+      activity.thumbnailPicture === null
+        ? null
+        : `${process.env.BACKEND_URL}/activity-thumbnails/${activity.thumbnailPicture}`;
+
     const { _avg } = await prisma.activityReview.aggregate({
       where: { activityId },
       _avg: { rating: true },
@@ -90,6 +178,8 @@ const createActivity = async (req, res) => {
   const { userId } = req.user;
   const thumbnailPicture = req.file;
 
+  console.log(data);
+
   try {
     if (!thumbnailPicture) {
       const response = badRequestResponse('No file to attach');
@@ -98,7 +188,11 @@ const createActivity = async (req, res) => {
 
     const parsedData = parseCreateActivityData(data);
     const fileName = thumbnailPicture.filename;
-
+    console.log({
+      activityProviderId: userId,
+      ...parsedData,
+      thumbnailPicture: fileName,
+    });
     const activity = await prisma.activity.create({
       data: {
         activityProviderId: userId,
@@ -116,7 +210,42 @@ const createActivity = async (req, res) => {
   }
 };
 
-const updateActivity = async () => {};
+const updateActivity = async (req, res) => {
+  const activityId = Number(req.params.activityId);
+  const data = req.body;
+  const thumbnailPicture = req.file;
+
+  try {
+    const parsedData = parseCreateActivityData(data);
+
+    if (thumbnailPicture) {
+      const fileName = thumbnailPicture.filename;
+
+      await prisma.activity.update({
+        data: {
+          thumbnailPicture: fileName,
+        },
+        where: { id: activityId },
+      });
+    }
+
+    delete parsedData.thumbnail;
+
+    const activity = await prisma.activity.update({
+      data: {
+        ...parsedData,
+      },
+      where: { id: activityId },
+    });
+
+    const response = updateSuccessResponse(activity);
+    return res.status(response.status.code).json(response);
+  } catch (error) {
+    logger.error(error.message);
+    const response = serverErrorResponse(error.message);
+    return res.status(response.status.code).json(response);
+  }
+};
 
 const deleteActivity = async (req, res) => {
   const activityId = Number(req.params.activityId);

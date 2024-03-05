@@ -24,6 +24,8 @@ const getMyProfile = async (req, res) => {
         ? null
         : `${process.env.BACKEND_URL}/user-profiles/${profile.profilePicture}`;
 
+    profile.role = 'PARENT';
+
     const response = okResponse(profile);
     return res.status(response.status.code).json(response);
   } catch (error) {

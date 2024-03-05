@@ -7,13 +7,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-generator dbml {
-  provider = "prisma-dbml-generator"
-}
+// generator dbml {
+//   provider = "prisma-dbml-generator"
+// }
 
-generator erd {
-  provider = "prisma-erd-generator"
-}
+// generator erd {
+//   provider = "prisma-erd-generator"
+// }
 
 model Admin {
   id        Int      @id @default(autoincrement())
@@ -30,7 +30,7 @@ model ActivityProvider {
   lastName       String
   businessName   String
   email          String                            @unique
-  password       String
+  password       String                            @db.Text
   website        String
   phoneNumber    String
   approvalStatus ACTIVITY_PROVIDER_APPROVAL_STATUS @default(PENDING)
@@ -58,14 +58,14 @@ model Parent {
 }
 
 model Child {
-  id          Int           @id @default(autoincrement())
-  parentId    Int
-  fullName    String
-  birthDay    DateTime
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
-  parent      Parent        @relation(fields: [parentId], references: [id])
-  OrderDetail OrderDetail[]
+  id             Int              @id @default(autoincrement())
+  parentId       Int
+  fullName       String
+  birthDay       DateTime
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  parent         Parent           @relation(fields: [parentId], references: [id], onDelete: Cascade)
+  OrderAttendees OrderAttendees[]
 }
 
 model Activity {
@@ -83,15 +83,15 @@ model Activity {
   activityStartTime  DateTime          @db.Time()
   activityEndTime    DateTime          @db.Time()
   formattedAddress   String            @db.Text
-  locationLatitude   Float
-  locationLongitude  Float
+  lat                Float?
+  lng                Float?
   isFullCourse       Boolean           @default(false)
   isSingleSession    Boolean           @default(false)
   fullCoursePrice    Float?
   singleSessionPrice Float?
   createdAt          DateTime          @default(now())
   updatedAt          DateTime          @updatedAt
-  provider           ActivityProvider  @relation(fields: [activityProviderId], references: [id])
+  provider           ActivityProvider  @relation(fields: [activityProviderId], references: [id], onDelete: Cascade)
   ActivityReview     ActivityReview[]
   OrderDetail        OrderDetail[]
 }
@@ -105,33 +105,44 @@ model ActivityReview {
   improvements String   @db.Text
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
-  activity     Activity @relation(fields: [activityId], references: [id])
-  parent       Parent   @relation(fields: [parentId], references: [id])
+  activity     Activity @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  parent       Parent   @relation(fields: [parentId], references: [id], onDelete: Cascade)
 }
 
 model Order {
-  id          Int           @id @default(autoincrement())
-  parentId    Int
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
-  parent      Parent        @relation(fields: [parentId], references: [id])
-  OrderDetail OrderDetail[]
+  id             Int           @id @default(autoincrement())
+  parentId       Int
+  proofOfPayment String?
+  isApproved     ORDER_STATUS  @default(PENDING)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  parent         Parent        @relation(fields: [parentId], references: [id], onDelete: Cascade)
+  OrderDetail    OrderDetail[]
 }
 
 model OrderDetail {
   id                Int                 @id @default(autoincrement())
   orderId           Int
   activityId        Int
-  childId           Int
   bookingType       BOOKING_TYPE
   totalPrice        Int
   hasGivenReview    Boolean             @default(false)
   createdAt         DateTime            @default(now())
   updatedAt         DateTime            @updatedAt
-  order             Order               @relation(fields: [orderId], references: [id])
-  activity          Activity            @relation(fields: [activityId], references: [id])
-  child             Child               @relation(fields: [childId], references: [id])
+  order             Order               @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  activity          Activity            @relation(fields: [activityId], references: [id], onDelete: Cascade)
   SingleSessionDate SingleSessionDate[]
+  OrderAttendees    OrderAttendees[]
+}
+
+model OrderAttendees {
+  id            Int         @id @default(autoincrement())
+  orderDetailId Int
+  childId       Int
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  orderDetail   OrderDetail @relation(fields: [orderDetailId], references: [id], onDelete: Cascade)
+  child         Child       @relation(fields: [childId], references: [id], onDelete: Cascade)
 }
 
 model SingleSessionDate {
@@ -140,7 +151,7 @@ model SingleSessionDate {
   sessionDate   DateTime
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
-  orderDetail   OrderDetail @relation(fields: [orderDetailId], references: [id])
+  orderDetail   OrderDetail @relation(fields: [orderDetailId], references: [id], onDelete: Cascade)
 }
 
 enum ACTIVITY_PROVIDER_APPROVAL_STATUS {
@@ -161,4 +172,10 @@ enum ACTIVITY_CATEGORY {
 enum BOOKING_TYPE {
   FULL_COURSE
   SINGLE_SESSION
+}
+
+enum ORDER_STATUS {
+  PENDING
+  APPROVE
+  REJECT
 }

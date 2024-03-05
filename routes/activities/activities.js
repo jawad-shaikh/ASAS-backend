@@ -15,8 +15,8 @@ const upload = multer({
   storage: activityThumbnailMiddleware[0],
 });
 
-router.get(
-  '/',
+router.post(
+  '/fetch',
   validateRequest(activitiesValidations.getAllActivities),
   activitiesControllers.getAllActivities,
 );
@@ -29,14 +29,14 @@ router.post(
   '/',
   activityProviderAuthRequired,
   upload.single('thumbnail'),
-  validateRequest(activitiesValidations.createActivity),
+  // validateRequest(activitiesValidations.createActivity),
   activitiesControllers.createActivity,
 );
 router.patch(
   '/:activityId',
   activityProviderAuthRequired,
   upload.single('thumbnail'),
-  validateRequest(activitiesValidations.updateActivity),
+  // validateRequest(activitiesValidations.updateActivity),
   activitiesControllers.updateActivity,
 );
 router.delete(

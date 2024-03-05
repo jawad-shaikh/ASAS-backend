@@ -8,7 +8,16 @@ const getAllActivityReviews = async (req, res) => {
 
   try {
     const activityReviews = await prisma.activityReview.findMany({
+      include: { parent: true },
       where: { activityId },
+    });
+
+    activityReviews.forEach((i) => {
+      // eslint-disable-next-line no-param-reassign
+      i.parent.profilePicture =
+        i.parent.profilePicture === null
+          ? null
+          : `${process.env.BACKEND_URL}/user-profiles/${i.parent.profilePicture}`;
     });
 
     const response = okResponse(activityReviews);
@@ -22,6 +31,7 @@ const getAllActivityReviews = async (req, res) => {
 
 const createActivityReview = async (req, res) => {
   const activityId = Number(req.params.activityId);
+  const orderDetailId = Number(req.query.orderDetailId);
   const data = req.body;
   const { userId } = req.user;
 
@@ -32,6 +42,13 @@ const createActivityReview = async (req, res) => {
         parentId: userId,
         ...data,
       },
+    });
+
+    await prisma.orderDetail.update({
+      data: {
+        hasGivenReview: true,
+      },
+      where: { id: orderDetailId },
     });
 
     const response = createSuccessResponse(activityReview);

@@ -8,5 +8,6 @@ router.use('/parents', require('./parents'));
 router.use('/activity-providers', require('./activityProviders'));
 router.use('/activities', require('./activities'));
 router.use('/orders', require('./orders'));
+router.use('/reports', require('./reports'));
 
 module.exports = router;

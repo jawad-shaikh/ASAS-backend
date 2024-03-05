@@ -25,9 +25,7 @@ const getAllActivityProviders = async (req, res) => {
 
 const getAllUnapprovedActivityProviders = async (req, res) => {
   try {
-    const providers = await prisma.activityProvider.findMany({
-      where: { approvalStatus: 'PENDING' },
-    });
+    const providers = await prisma.activityProvider.findMany();
 
     const response = okResponse(providers);
     return res.status(response.status.code).json(response);

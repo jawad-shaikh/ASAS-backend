@@ -9,7 +9,9 @@ const getAllActivityReviews = Joi.object({
 });
 
 const createActivityReview = Joi.object({
-  query: Joi.object({}),
+  query: Joi.object({
+    orderDetailId: Joi.number().required(),
+  }),
   params: Joi.object({
     activityId: Joi.number().required(),
   }),

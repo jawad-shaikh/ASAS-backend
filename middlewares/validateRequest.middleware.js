@@ -6,10 +6,7 @@ const validateRequest = (schema) => (req, res, next) => {
   const { body, params, query } = req;
 
   try {
-    const { error } = schema.validate(
-      { body, params, query },
-      { abortEarly: false },
-    );
+    const { error } = schema.validate({ body, params, query }, { abortEarly: false });
     if (error) {
       const errorMessage = error.details.map((err) => err.message);
       const response = badRequestResponse(errorMessage);

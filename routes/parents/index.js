@@ -6,5 +6,7 @@ const router = express.Router();
 router.use('/auth', require('./auth'));
 router.use('/me', require('./me'));
 router.use('/children', require('./children'));
+router.use('/orders', require('./orders'));
+router.use('/', require('./parents'));
 
 module.exports = router;

@@ -25,11 +25,8 @@ const addChild = async (req, res) => {
   const data = req.body;
 
   try {
-    const children = await prisma.child.create({
-      data: {
-        ...data,
-        parentId: userId,
-      },
+    const children = await prisma.child.createMany({
+      data: data.map((i) => ({ ...i, parentId: userId })),
     });
 
     const response = createSuccessResponse(children);

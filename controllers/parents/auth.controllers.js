@@ -68,6 +68,10 @@ const login = async (req, res) => {
       fullName: user.fullName,
       email: user.email,
       role: 'PARENT',
+      profilePicture:
+        user.profilePicture === null
+          ? null
+          : `${process.env.BACKEND_URL}/user-profiles/${user.profilePicture}`,
     };
 
     const token = jwt.sign(jwtPayload, process.env.JWT_SECRET);
