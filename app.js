@@ -12,6 +12,7 @@ app.use(cors());
 
 app.get('/', (req, res) => res.send('hi'));
 app.use('/api/v1', require('./routes/index'));
+
 app.get('/places', async (req, res) => {
   try {
     const { query } = req.query;
@@ -26,6 +27,7 @@ app.get('/places', async (req, res) => {
 
       // Send the relevant data back to the client
       res.json({
+        name: result.name,
         formatted_address: result.formatted_address,
         lat: result.geometry.location.lat,
         lng: result.geometry.location.lng,
