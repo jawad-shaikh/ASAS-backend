@@ -19,7 +19,12 @@ app.get('/places', async (req, res) => {
     const response = await axios.get(
       `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&key=${key}`,
     );
-    res.json(response.data);
+
+    response.data.res.json({
+      formatted_address: response.data.results[0].formatted_address,
+      lat: response.data.results[0].geometry.location.lat,
+      lng: response.data.results[0].geometry.location.lng,
+    });
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Internal Server Error' });
