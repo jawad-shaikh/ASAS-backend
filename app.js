@@ -15,8 +15,9 @@ app.use('/api/v1', require('./routes/index'));
 app.get('/places', async (req, res) => {
   try {
     const { query } = req.query;
+    const key = 'AIzaSyALid_clJdG76KwqFhqa5qvNqRb8dTt-h8';
     const response = await axios.get(
-      `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&key=AIzaSyALid_clJdG76KwqFhqa5qvNqRb8dTt-`,
+      `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&key=${key}`,
     );
     res.json(response.data);
   } catch (error) {
