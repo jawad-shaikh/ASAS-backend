@@ -20,11 +20,7 @@ app.get('/places', async (req, res) => {
       `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&key=${key}`,
     );
 
-    response.data.res.json({
-      formatted_address: response.data.results[0].formatted_address,
-      lat: response.data.results[0].geometry.location.lat,
-      lng: response.data.results[0].geometry.location.lng,
-    });
+    res.json(response.data);
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Internal Server Error' });
