@@ -20,7 +20,19 @@ app.get('/places', async (req, res) => {
       `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&key=${key}`,
     );
 
-    res.json(response.data);
+    // Check if there are any results
+    if (response.data.results.length > 0) {
+      const result = response.data.results[0]; // Assuming you're only interested in the first result
+
+      // Send the relevant data back to the client
+      res.json({
+        formatted_address: result.formatted_address,
+        lat: result.geometry.location.lat,
+        lng: result.geometry.location.lng,
+      });
+    } else {
+      res.status(404).json({ error: 'Place not found' });
+    }
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Internal Server Error' });
