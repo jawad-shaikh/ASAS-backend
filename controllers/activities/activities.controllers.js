@@ -94,7 +94,7 @@ const getAllActivities = async (req, res) => {
       },
     });
 
-    if (latitude && longitude) {
+    if (latitude !== 0 && longitude !== 0) {
       activities = activities.filter((activity) => {
         const distance = geolib.getDistance(
           { latitude: parseFloat(latitude), longitude: parseFloat(longitude) },
