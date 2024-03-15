@@ -71,21 +71,21 @@ const getAllActivities = async (req, res) => {
       }));
     }
 
-    if (startTime && endTime) {
-      console.log(startTime, endTime);
-      let date1 = new Date();
-      date1.setHours(Number(startTime));
-      date1.setMinutes(0);
-      date1.setSeconds(0);
+    // if (startTime && endTime) {
+    //   console.log(startTime, endTime);
+    //   let date1 = new Date();
+    //   date1.setHours(Number(startTime));
+    //   date1.setMinutes(0);
+    //   date1.setSeconds(0);
 
-      let date2 = new Date();
-      date2.setHours(Number(endTime));
-      date2.setMinutes(0);
-      date2.setSeconds(0);
+    //   let date2 = new Date();
+    //   date2.setHours(Number(endTime));
+    //   date2.setMinutes(0);
+    //   date2.setSeconds(0);
 
-      whereClause.activityStartTime = { lte: date2 };
-      whereClause.activityEndTime = { gte: date1 };
-    }
+    //   whereClause.activityStartTime = { lte: date2 };
+    //   whereClause.activityEndTime = { gte: date1 };
+    // }
 
     let activities = await prisma.activity.findMany({
       where: whereClause,
@@ -128,6 +128,7 @@ const getAllActivities = async (req, res) => {
       lat: i.lat,
       lng: i.lng,
       name: i.formattedAddress,
+      title: i.title,
     }));
 
     const response = okResponse({ activities: activitiesWithRatingInfo, coordinates });
