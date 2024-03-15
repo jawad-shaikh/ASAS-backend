@@ -100,7 +100,7 @@ const getAllActivities = async (req, res) => {
           { latitude: parseFloat(latitude), longitude: parseFloat(longitude) },
           { latitude: activity.lat, longitude: activity.lng },
         );
-        return distance <= 50; // Distance in meters
+        return distance <= 20000; // Distance in meters
       });
     }
 
