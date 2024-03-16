@@ -105,25 +105,6 @@ const getAllActivities = async (req, res) => {
       });
     }
 
-    if ((!latitude || latitude === 0) && (!longitude || longitude === 0)) {
-      const ip = req.ip;
-      const geo = geoip.lookup(ip);
-
-      if (geo && geo.ll && geo.ll.length === 2) {
-        latitude = geo.ll[0];
-        longitude = geo.ll[1];
-
-        // Filter activities based on the fetched latitude and longitude
-        activities = activities.filter((activity) => {
-          const distance = geolib.getDistance(
-            { latitude: parseFloat(latitude), longitude: parseFloat(longitude) },
-            { latitude: activity.lat, longitude: activity.lng },
-          );
-          return distance <= 20000; // Distance in meters
-        });
-      }
-    }
-
     const activitiesWithRatingInfo = await Promise.all(
       activities.map(async (activity) => {
         const avgRating = await prisma.activityReview.aggregate({
