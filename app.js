@@ -45,9 +45,9 @@ app.get('/get-formatted-address', async (req, res) => {
   const { address } = req.query;
 
   try {
-    const key = 'key=AIzaSyALid_clJdG76KwqFhqa5qvNqRb8dTt-h8';
+    const key = 'AIzaSyALid_clJdG76KwqFhqa5qvNqRb8dTt-h8';
     const response = await axios.get(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&${key}`,
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${key}`,
     );
 
     res.json(response);
