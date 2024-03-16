@@ -42,12 +42,12 @@ app.get('/places', async (req, res) => {
 });
 
 app.get('/get-formatted-address', async (req, res) => {
-  const { lat, lng } = req.query;
+  const { address } = req.query;
 
   try {
-    const key = 'AIzaSyALid_clJdG76KwqFhqa5qvNqRb8dTt-h8';
+    const key = 'key=AIzaSyALid_clJdG76KwqFhqa5qvNqRb8dTt-h8';
     const response = await axios.get(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${lat},${lng}&key=${key}`,
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&${key}`,
     );
 
     res.json(response);
