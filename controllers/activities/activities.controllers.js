@@ -60,11 +60,11 @@ const getAllActivities = async (req, res) => {
     }
 
     if (bookingType && bookingType.length > 0) {
-      if (bookingType.include('SINGLE_SESSION')) {
+      if (bookingType.includes('SINGLE_SESSION')) {
         whereClause.isSingleSession = true;
       }
 
-      if (bookingType.include('FULL_COURSE')) {
+      if (bookingType.includes('FULL_COURSE')) {
         whereClause.fullCoursePrice = true;
       }
     }
