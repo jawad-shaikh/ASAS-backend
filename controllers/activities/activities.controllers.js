@@ -70,8 +70,7 @@ const getAllActivities = async (req, res) => {
     }
 
     if (months && months.length > 0) {
-      const monthRanges = months.map((a) => parseInt(a));
-      whereClause.OR = monthRanges.map((month) => ({
+      whereClause.OR = months.map((month) => ({
         AND: [
           { activityStartDate: { lte: new Date(2024, month + 1, 0) } },
           { activityEndDate: { gte: new Date(2024, month, 1) } },
