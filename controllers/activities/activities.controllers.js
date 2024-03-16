@@ -60,7 +60,13 @@ const getAllActivities = async (req, res) => {
     }
 
     if (bookingType && bookingType.length > 0) {
-      whereClause.bookingType = { in: bookingType };
+      if (bookingType.include('SINGLE_SESSION')) {
+        whereClause.isSingleSession = true;
+      }
+
+      if (bookingType.include('FULL_COURSE')) {
+        whereClause.fullCoursePrice = true;
+      }
     }
 
     if (months && months.length > 0) {
