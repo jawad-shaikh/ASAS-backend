@@ -65,7 +65,7 @@ const getAllActivities = async (req, res) => {
       }
 
       if (bookingType.includes('FULL_COURSE')) {
-        whereClause.fullCoursePrice = true;
+        whereClause.isFullCourse = true;
       }
     }
 
