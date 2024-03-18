@@ -41,7 +41,7 @@ const getMyReport = async (req, res) => {
     const response = okResponse({
       totalActivities,
       activitiesBooked: activitiesBooked.length,
-      totalEarnings,
+      totalEarnings: totalEarnings * 0.8,
     });
     return res.status(response.status.code).json(response);
   } catch (error) {
