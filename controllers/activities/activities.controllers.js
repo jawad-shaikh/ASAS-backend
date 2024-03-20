@@ -34,6 +34,11 @@ const getAllActivities = async (req, res) => {
   let { category, age, bookingType, startTime, endTime, searchQuery, months, latitude, longitude } =
     req.body;
 
+  if (latitude === 0 && longitude === 0) {
+    const response = okResponse({ activities: [], coordinates: [] });
+    return res.status(response.status.code).json(response);
+  }
+
   try {
     const whereClause = {};
 
