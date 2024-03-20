@@ -79,15 +79,15 @@ const getAllActivities = async (req, res) => {
       }
     }
 
-    // if (months && months.length > 0) {
-    //   const monthsRange = months.map((a) => parseInt(a));
-    //   whereClause.OR = monthsRange.map((month) => ({
-    //     AND: [
-    //       { activityStartDate: { lte: new Date(2024, month + 1, 0) } },
-    //       { activityEndDate: { gte: new Date(2024, month, 1) } },
-    //     ],
-    //   }));
-    // }
+    if (months && months.length > 0) {
+      const monthsRange = months.map((a) => parseInt(a));
+      whereClause.OR = monthsRange.map((month) => ({
+        AND: [
+          { activityStartDate: { lte: new Date(2024, month + 1, 0) } },
+          { activityEndDate: { gte: new Date(2024, month, 1) } },
+        ],
+      }));
+    }
 
     // if (startTime && endTime) {
     //   console.log(startTime, endTime);
@@ -112,15 +112,18 @@ const getAllActivities = async (req, res) => {
       },
     });
 
-    if (latitude && latitude !== 0 && longitude && longitude !== 0) {
-      activities = activities.filter((activity) => {
-        const distance = geolib.getDistance(
-          { latitude: parseFloat(latitude), longitude: parseFloat(longitude) },
-          { latitude: activity.lat, longitude: activity.lng },
-        );
-        return distance <= 20000; // Distance in meters
-      });
+    if (activities.length === 0) {
+      const response = okResponse({ activities: [], coordinates: [] });
+      return res.status(response.status.code).json(response);
     }
+
+    activities = activities.filter((activity) => {
+      const distance = geolib.getDistance(
+        { latitude: parseFloat(latitude), longitude: parseFloat(longitude) },
+        { latitude: activity.lat, longitude: activity.lng },
+      );
+      return distance <= 20000; // Distance in meters
+    });
 
     const activitiesWithRatingInfo = await Promise.all(
       activities.map(async (activity) => {
