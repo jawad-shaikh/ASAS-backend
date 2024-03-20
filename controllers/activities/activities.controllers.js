@@ -112,10 +112,14 @@ const getAllActivities = async (req, res) => {
       },
     });
 
+    console.log('activities 1', activities);
+
     if (activities.length === 0) {
       const response = okResponse({ activities: [], coordinates: [] });
       return res.status(response.status.code).json(response);
     }
+
+    console.log('working 1');
 
     activities = activities.filter((activity) => {
       const distance = geolib.getDistance(
@@ -124,6 +128,8 @@ const getAllActivities = async (req, res) => {
       );
       return distance <= 20000; // Distance in meters
     });
+
+    console.log('working 2');
 
     const activitiesWithRatingInfo = await Promise.all(
       activities.map(async (activity) => {
@@ -145,12 +151,16 @@ const getAllActivities = async (req, res) => {
       }),
     );
 
+    console.log('working 3');
+
     const coordinates = activities.map((i) => ({
       lat: i.lat,
       lng: i.lng,
       name: i.formattedAddress,
       title: i.title,
     }));
+
+    console.log('working 4');
 
     const response = okResponse({ activities: activitiesWithRatingInfo, coordinates });
     return res.status(response.status.code).json(response);
