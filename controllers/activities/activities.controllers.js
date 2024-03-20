@@ -173,6 +173,28 @@ const getAllActivities = async (req, res) => {
   }
 };
 
+const getAllActivitiesByProvider = async (req, res) => {
+  const activityProviderId = Number(req.query.activityProviderId);
+
+  try {
+    let activities = await prisma.activity.findMany({
+      where: {
+        activityProviderId,
+      },
+      include: {
+        provider: true,
+      },
+    });
+
+    const response = okResponse({ activities });
+    return res.status(response.status.code).json(response);
+  } catch (error) {
+    logger.error(error.message);
+    const response = serverErrorResponse(error.message);
+    return res.status(response.status.code).json(response);
+  }
+};
+
 const getSingleActivity = async (req, res) => {
   const activityId = Number(req.params.activityId);
 
@@ -300,6 +322,7 @@ const deleteActivity = async (req, res) => {
 
 module.exports = {
   getAllActivities,
+  getAllActivitiesByProvider,
   getSingleActivity,
   createActivity,
   updateActivity,

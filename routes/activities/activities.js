@@ -20,6 +20,11 @@ router.post(
   validateRequest(activitiesValidations.getAllActivities),
   activitiesControllers.getAllActivities,
 );
+router.post(
+  '/fetch-by-provider',
+  validateRequest(activitiesValidations.getAllActivities),
+  activitiesControllers.getAllActivitiesByProvider,
+);
 router.get(
   '/:activityId',
   validateRequest(activitiesValidations.getSingleActivity),
