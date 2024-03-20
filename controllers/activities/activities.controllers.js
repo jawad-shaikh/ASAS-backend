@@ -105,6 +105,8 @@ const getAllActivities = async (req, res) => {
     //   whereClause.activityEndTime = { gte: date1 };
     // }
 
+    console.log('so far yes');
+
     let activities = await prisma.activity.findMany({
       where: whereClause,
       include: {
