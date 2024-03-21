@@ -1,7 +1,7 @@
 const express = require('express');
 
 const validateRequest = require('../../middlewares/validateRequest.middleware');
-const parentAuthRequired = require('../../middlewares/parentAuthRequired.middleware');
+const adminAuthRequired = require('../../middlewares/adminAuthRequired.middleware');
 
 const parentsValidations = require('../../validations/parents/parents');
 const parentsControllers = require('../../controllers/parents/parents.controllers');
@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get(
   '/',
-  parentAuthRequired,
+  adminAuthRequired,
   validateRequest(parentsValidations.getAllParents),
   parentsControllers.getAllParents,
 );
