@@ -220,6 +220,13 @@ const getSingleActivity = async (req, res) => {
       _avg: { rating: true },
     });
 
+    activity.ActivityReview.forEach((i) => {
+      i.parent.profilePicture =
+        i.parent.profilePicture === null
+          ? null
+          : `${process.env.BACKEND_URL}/user-profiles/${i.parent.profilePicture}`;
+    });
+
     const response = okResponse({ ...activity, averageRating: _avg.rating || 0 });
     return res.status(response.status.code).json(response);
   } catch (error) {

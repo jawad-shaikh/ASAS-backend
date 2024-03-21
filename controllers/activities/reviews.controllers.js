@@ -13,7 +13,6 @@ const getAllActivityReviews = async (req, res) => {
     });
 
     activityReviews.forEach((i) => {
-      // eslint-disable-next-line no-param-reassign
       i.parent.profilePicture =
         i.parent.profilePicture === null
           ? null
